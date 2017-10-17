@@ -21,4 +21,4 @@ explicit as possible in defining the packages that you need. This includes
 specifying explict versions wherever possible
 
 In this example we include the library `seaborn`, and our notebook uses Seaborn
-to plot a figure. 
+to plot a figure.
