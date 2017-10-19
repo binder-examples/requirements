@@ -4,7 +4,7 @@ A Binder-compatible repo with a `requirements.txt` file.
 
 [![Binder](http://mybinder.org/badge.svg)](http://beta.mybinder.org/v2/gh/binder-examples/requirements/master)
 
-Access this Binder at the following URL:
+Access this Binder at the following URL: 
 
 http://beta.mybinder.org/v2/gh/binder-examples/requirements/master
 
