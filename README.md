@@ -18,7 +18,7 @@ pip install -r requirements.txt
 
 The base Binder image contains no extra dependencies, so be as
 explicit as possible in defining the packages that you need. This includes
-specifying explict versions wherever possible
+specifying explict versions wherever possible.
 
 In this example we include the library `seaborn`, and our notebook uses it
 to plot a figure. 
