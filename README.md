@@ -8,7 +8,7 @@ Access this Binder at the following URL:
 
 http://beta.mybinder.org/v2/gh/binder-examples/requirements/master
 
-# Notes
+## Notes
 The `requirements.txt` file should list all Python libraries that your notebooks
 depend on, and they will be installed using:
 
