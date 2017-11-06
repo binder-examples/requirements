@@ -6,7 +6,7 @@ A Binder-compatible repo with a `requirements.txt` file.
 
 Access this Binder at the following URL: 
 
-http://beta.mybinder.org/v2/gh/binder-examples/requirements/master
+http://mybinder.org/v2/gh/binder-examples/requirements/master
 
 ## Notes
 The `requirements.txt` file should list all Python libraries that your notebooks
