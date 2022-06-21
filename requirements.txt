@@ -4,14 +4,38 @@
 #
 #    pip-compile
 #
-cycler==0.10.0            # via matplotlib
-kiwisolver==1.2.0         # via matplotlib
+cycler==0.10.0
+    # via matplotlib
+kiwisolver==1.2.0
+    # via matplotlib
 matplotlib==3.2.1
-numpy==1.18.5
+    # via
+    #   -r requirements.in
+    #   seaborn
+numpy==1.22.0
+    # via
+    #   -r requirements.in
+    #   matplotlib
+    #   pandas
+    #   scipy
+    #   seaborn
 pandas==1.0.4
-pyparsing==2.4.7          # via matplotlib
-python-dateutil==2.8.1    # via matplotlib, pandas
-pytz==2020.1              # via pandas
-scipy==1.4.1              # via seaborn
+    # via
+    #   -r requirements.in
+    #   seaborn
+pyparsing==2.4.7
+    # via matplotlib
+python-dateutil==2.8.1
+    # via
+    #   matplotlib
+    #   pandas
+pytz==2020.1
+    # via pandas
+scipy==1.4.1
+    # via seaborn
 seaborn==0.10.1
-six==1.15.0               # via cycler, python-dateutil
+    # via -r requirements.in
+six==1.15.0
+    # via
+    #   cycler
+    #   python-dateutil
