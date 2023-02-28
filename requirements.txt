@@ -8,3 +8,5 @@ matplotlib==3.*
 seaborn
 pandas
 pyvista
+nbgitpuller
+jupytext
