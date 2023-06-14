@@ -68,6 +68,6 @@ jobs:
           echo "### :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle:" >> $GITHUB_STEP_SUMMARY
           python read_file.py >> $GITHUB_STEP_SUMMARY
           echo "##### Update these dependencies to the required version before merging:" >> $GITHUB_STEP_SUMMARY
-          echo "- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with ***>=*** and not ***==*** (i.e. ***pandas>=1.5.1***)" >> $GITHUB_STEP_SUMMARY
+          echo "- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with '***>=***' and not '***==***' (i.e. ***pandas>=1.5.1***)" >> $GITHUB_STEP_SUMMARY
           echo "- Run the following command within the folder the ***requirements.txt*** file resides" >> $GITHUB_STEP_SUMMARY
           echo "  - ***pip install -r requirements.txt --upgrade***" >> $GITHUB_STEP_SUMMARY
