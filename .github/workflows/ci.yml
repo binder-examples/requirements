@@ -54,11 +54,11 @@ jobs:
           python-version: "3.10"
           
       - name: Upgrade pip
-        run: pip3 install --upgrade pip
+        run: pip install --upgrade pip
       
       - name: Check dependencies
         run: |
-          pip3 install -r requirements.txt
+          pip install -r requirements.txt
           echo "| :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle: |" >> $GITHUB_STEP_SUMMARY
           echo "| ----------------------------------- |" >> $GITHUB_STEP_SUMMARY
-          pip3 list --outdated >> $GITHUB_STEP_SUMMARY
+          pip list --outdated >> $GITHUB_STEP_SUMMARY
