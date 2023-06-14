@@ -14,33 +14,33 @@ permissions:
   issues: write
   
 jobs:
-  Sonar-Analysis:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Repo Data
-        uses: actions/checkout@v3
+#   Sonar-Analysis:
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Checkout Repo Data
+#         uses: actions/checkout@v3
         
-      - name: SonarCloud Analysis
-        uses: SonarSource/sonarcloud-github-action@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.TOKENIZED }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        with:
-          args:
-            -Dsonar.projectKey=Majikjack620_senior-project
-            -Dsonar.organization=majikjack620
+#       - name: SonarCloud Analysis
+#         uses: SonarSource/sonarcloud-github-action@master
+#         env:
+#           GITHUB_TOKEN: ${{ secrets.TOKENIZED }}
+#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+#         with:
+#           args:
+#             -Dsonar.projectKey=Majikjack620_senior-project
+#             -Dsonar.organization=majikjack620
             
-  Dependabot-PR-Assigner:
-    runs-on: ubuntu-latest
-    if: ${{github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
-    steps:
-      - name: Assign PR to Reviewer
-        uses: pozil/auto-assign-issue@v1
-        with:
-          repo-token: ${{secrets.TOKENIZED}}
-          assignees: Majikjack620
-          numOfAssignee: 1
-          allowSelfAssign: true
+#   Dependabot-PR-Assigner:
+#     runs-on: ubuntu-latest
+#     if: ${{github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
+#     steps:
+#       - name: Assign PR to Reviewer
+#         uses: pozil/auto-assign-issue@v1
+#         with:
+#           repo-token: ${{secrets.TOKENIZED}}
+#           assignees: Majikjack620
+#           numOfAssignee: 1
+#           allowSelfAssign: true
           
   Dependency-Validator:
     runs-on: ubuntu-latest
