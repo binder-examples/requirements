@@ -1,6 +1,4 @@
 with open('dependent.txt', 'r') as file:
-  # first_line = file.readline().strip("\n")
-  
   for line in file:
     listings = list(line.split())
     length = len(listings)
@@ -10,6 +8,4 @@ with open('dependent.txt', 'r') as file:
         print(listings[i], end=" | \n")
       else:
         print(listings[i], end=" | ")
-
-    # if line == first_line:
       
