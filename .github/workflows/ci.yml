@@ -9,9 +9,9 @@ on:
   workflow_dispatch:
     
 permissions:
-  pull-requests: write
-  contents: write
-  issues: write
+  pull-requests: read
+  contents: read
+  issues: read
   
 jobs:
 #   Sonar-Analysis:
@@ -56,6 +56,7 @@ jobs:
       - name: Check dependencies
         run: |
           pip install -r requirements.txt
+          pip list --outdated
           echo "| :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle: |" >> $GITHUB_STEP_SUMMARY
           echo "| ----------------------------------- |" >> $GITHUB_STEP_SUMMARY
           pip list --outdated >> $GITHUB_STEP_SUMMARY
