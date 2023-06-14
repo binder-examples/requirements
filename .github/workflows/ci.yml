@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: main
+  pull_request:
+    branches: [main, master]
+    types: [opened, reopened, labeled, synchronize]
+  workflow_dispatch:
+    
+permissions:
+  pull-requests: write
+  contents: write
+  issues: write
+  
+jobs:
+  Sonar-Analysis:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo Data
+        uses: actions/checkout@v3
+        
+      - name: SonarCloud Analysis
+        uses: SonarSource/sonarcloud-github-action@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.TOKENIZED }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        with:
+          args:
+            -Dsonar.projectKey=Majikjack620_senior-project
+            -Dsonar.organization=majikjack620
+            
+  Dependabot-PR-Assigner:
+    runs-on: ubuntu-latest
+    if: ${{github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
+    steps:
+      - name: Assign PR to Reviewer
+        uses: pozil/auto-assign-issue@v1
+        with:
+          repo-token: ${{secrets.TOKENIZED}}
+          assignees: Majikjack620
+          numOfAssignee: 1
+          allowSelfAssign: true
+          
+  Dependency-Validator:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo Data
+        uses: actions/checkout@v3
+          
+      - name: Set up python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+          
+      - name: Upgrade pip
+        run: pip3 install --upgrade pip
+      
+      - name: Check dependencies
+        run: |
+          pip3 install -r requirements.txt
+          echo "| :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle: |" >> $GITHUB_STEP_SUMMARY
+          echo "| ----------------------------------- |" >> $GITHUB_STEP_SUMMARY
+          pip3 list --outdated >> $GITHUB_STEP_SUMMARY
