@@ -3,7 +3,7 @@ with open('dependent.txt', 'r') as file:
     listings = list(line.split())
     length = len(listings)
     
-    for i in length:
+    for i in range(length):
       if i == length-1:
         print(listings[i], end=" | \n")
       else:
