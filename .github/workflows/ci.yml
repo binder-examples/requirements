@@ -57,6 +57,5 @@ jobs:
         run: |
           pip install -r requirements.txt
           pip list --outdated >> dependent.txt
-          echo "| :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle: |" >> $GITHUB_STEP_SUMMARY
-          echo "| ----------------------------------- |" >> $GITHUB_STEP_SUMMARY
+          echo "### :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle:" >> $GITHUB_STEP_SUMMARY
           python read_file.py >> $GITHUB_STEP_SUMMARY
