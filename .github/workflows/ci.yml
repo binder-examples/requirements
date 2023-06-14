@@ -64,3 +64,4 @@ jobs:
           pip list --outdated >> dependent.txt
           echo "### :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle:" >> $GITHUB_STEP_SUMMARY
           python read_file.py >> $GITHUB_STEP_SUMMARY
+          echo "##### Update these dependencies to the required version before merging" >> $GITHUB_STEP_SUMMARY
