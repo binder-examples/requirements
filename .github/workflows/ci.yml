@@ -56,7 +56,7 @@ jobs:
       - name: Check dependencies
         run: |
           pip install -r requirements.txt
-          pip list --outdated
+          pip list --outdated >> dependent.txt
           echo "| :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle: |" >> $GITHUB_STEP_SUMMARY
           echo "| ----------------------------------- |" >> $GITHUB_STEP_SUMMARY
-          pip list --outdated >> $GITHUB_STEP_SUMMARY
+          python read_file.py >> $GITHUB_STEP_SUMMARY
