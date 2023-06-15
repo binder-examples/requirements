@@ -63,7 +63,7 @@ jobs:
           pip list --outdated
           pip list --outdated >> dependent.txt
           
-      - name: Read outdated dependencies
+      - name: Summary
         run: |
           echo "### :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle:" >> $GITHUB_STEP_SUMMARY
           python read_file.py >> $GITHUB_STEP_SUMMARY
@@ -75,8 +75,12 @@ jobs:
       - if: ${{github.event_name == 'pull_request'}}
         name: Write comment
         run: |
+          echo "### :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle:" >> comments.txt
           python read_file.py >> comments.txt
-          gh pr comment "$PR_URL" --body '##### Update these dependencies to the required version before merging:'
+          echo "##### Update these dependencies to the required version before merging:" >> comments.txt
+          echo "- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with '***>=***' and not '***==***' (i.e. ***pandas>=1.5.1***)" >> comments.txt
+          echo "- Run the following command within the folder the ***requirements.txt*** file resides" >> comments.txt
+          echo "  - ***pip install -r requirements.txt --upgrade***" >> comments.txt
           gh pr comment "$PR_URL" --body-file comments.txt
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
