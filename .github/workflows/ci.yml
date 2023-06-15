@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     
 permissions:
-  pull-requests: read
+  pull-requests: write
   contents: read
   issues: read
   
@@ -71,3 +71,12 @@ jobs:
           echo "- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with '***>=***' and not '***==***' (i.e. ***pandas>=1.5.1***)" >> $GITHUB_STEP_SUMMARY
           echo "- Run the following command within the folder the ***requirements.txt*** file resides" >> $GITHUB_STEP_SUMMARY
           echo "  - ***pip install -r requirements.txt --upgrade***" >> $GITHUB_STEP_SUMMARY
+          
+      - if: ${{github.event_name == 'pull_request'}}
+        name: Write comment
+        run: |
+          python read_file.py >> comments.txt
+          gh pr comment "$PR_URL" --body-file comments.txt
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
