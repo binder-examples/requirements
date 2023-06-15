@@ -9,7 +9,7 @@ with open('dependent.txt', 'r') as depend:
   else:
 
     # Header
-    print("### :x: Outdated/Missing Dependencies List :x:")
+    print("### :small_red_triangle_down: Outdated/Missing Dependencies List :small_red_triangle_down:")
 
     # Read file line-by-line
     for line in depend:
@@ -38,9 +38,10 @@ depend.close()
 
 with open('check_major_minor.txt', 'r') as checker:
   content = checker.read()
-  
-  if 'Major' in content:
-    print("### MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating")
+
   if 'Minor' in content:
-    print("### MINOR DEPENDENCY UPDATE(S): Update these dependencies, otherwise the check will keep failing")
+    print("### :x: MINOR DEPENDENCY UPDATE(S): Update these dependencies, otherwise the check will keep failing :x:")
     exit("Cannot merge: Minor dependency updates available")
+    
+  if 'Major' in content:
+    print("### :warning: MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating :warning:")
