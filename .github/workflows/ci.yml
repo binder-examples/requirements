@@ -68,7 +68,7 @@ jobs: # Jobs the workflow runs
           pip list --outdated >> dependent.txt
           
       - if: ${{github.event_name == 'pull_request'}}
-        name: Summarizing
+        name: Summarize
         run: |
           python read_file.py >> $GITHUB_STEP_SUMMARY &
           python read_file.py >> comments.txt &
