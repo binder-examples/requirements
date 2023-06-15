@@ -23,8 +23,8 @@ jobs: # Jobs the workflow runs
       - name: SonarCloud Analysis
         uses: SonarSource/sonarcloud-github-action@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          SONAR_TOKEN: ${{secrets.SONAR_TOKEN}}
         with:
           args:
           
@@ -60,6 +60,7 @@ jobs: # Jobs the workflow runs
           pip install --upgrade pip
           pip install pip-check
           pip install -r requirements.txt
+          pip install -r requirements.txt -U
       
       - name: Check dependencies
         run: |
