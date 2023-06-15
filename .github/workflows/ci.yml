@@ -63,7 +63,7 @@ jobs:
           pip list --outdated
           pip list --outdated >> dependent.txt
           
-      - name: Summary
+      - name: Summarizing
         run: |
           python read_file.py >> $GITHUB_STEP_SUMMARY
           
