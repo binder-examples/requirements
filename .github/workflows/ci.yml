@@ -56,18 +56,20 @@ jobs:
       - name: Upgrade pip and install dependencies
         run: |
           pip install --upgrade pip
+          pip install pip-check
           pip install -r requirements.txt
       
       - name: Check dependencies
         run: |
-          pip list --outdated
+          pip-check >> check.txt
+          cat check.txt >> $GITHUB_STEP_SUMMARY
           pip list --outdated >> dependent.txt
           
       - name: Summary
         run: |
-          echo "### :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle:" >> $GITHUB_STEP_SUMMARY
+          echo "### :small_red_triangle: Outdated/Missing Dependencies List :small_red_triangle:" >> $GITHUB_STEP_SUMMARY
           python read_file.py >> $GITHUB_STEP_SUMMARY
-          echo "##### Update these dependencies to the required version before merging:" >> $GITHUB_STEP_SUMMARY
+          echo "##### Update these dependencies:" >> $GITHUB_STEP_SUMMARY
           echo "- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with '***>=***' and not '***==***' (i.e. ***pandas>=1.5.1***)" >> $GITHUB_STEP_SUMMARY
           echo "- Run the following command within the folder the ***requirements.txt*** file resides" >> $GITHUB_STEP_SUMMARY
           echo "  - ***pip install -r requirements.txt --upgrade***" >> $GITHUB_STEP_SUMMARY
@@ -75,9 +77,9 @@ jobs:
       - if: ${{github.event_name == 'pull_request'}}
         name: Write comment
         run: |
-          echo "### :small_red_triangle: OUTDATED/MISSING Dependencies List :small_red_triangle:" >> comments.txt
+          echo "### :small_red_triangle: Outdated/Missing Dependencies List :small_red_triangle:" >> comments.txt
           python read_file.py >> comments.txt
-          echo "##### Update these dependencies to the required version before merging:" >> comments.txt
+          echo "##### Update these dependencies:" >> comments.txt
           echo "- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with '***>=***' and not '***==***' (i.e. ***pandas>=1.5.1***)" >> comments.txt
           echo "- Run the following command within the folder the ***requirements.txt*** file resides" >> comments.txt
           echo "  - ***pip install -r requirements.txt --upgrade***" >> comments.txt
