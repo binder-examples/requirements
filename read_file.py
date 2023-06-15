@@ -42,5 +42,5 @@ with open('check_major_minor.txt', 'r') as checker:
   if 'Major' in content:
     print("### MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating")
   if 'Minor' in content:
-    print("### MINOR DEPENDENCY UPDATE(S): Update these dependencies before merging")
-    sys.exit("Minor dependency updates available")
+    print("### MINOR DEPENDENCY UPDATE(S): Update these dependencies, otherwise the check will keep failing")
+    exit("Cannot merge: Minor dependency updates available")
