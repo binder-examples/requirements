@@ -14,7 +14,7 @@ permissions: # Permissions of the workflow
   issues: read
   
 jobs: # Jobs the workflow runs
-  Sonar-Analysis: # SonarCloud job for code scanning
+  Sonar-Analysis: # Job for SonarCloud code scanning
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo Data
