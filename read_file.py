@@ -1,6 +1,7 @@
 # Open file with outdated dependencies
 with open('dependent.txt', 'r') as file:
-
+  content = file.read()
+  
   # If the file is empty, this means all dependencies are up to date
   if file == '':
     print(":heavy_check_mark: All dependencies up to date :heavy_check_mark:")
@@ -35,5 +36,8 @@ with open('dependent.txt', 'r') as file:
     print("  - ***pip install -r requirements.txt -U***")
     print("- **OR** run the command ***pip install {DEPENDENCY_NAME} -U*** to update a specific dependency")
 
-# Close the file
-file.close()
+  if 'Major' in content:
+    print("### MAJOR DEPENDENCY UPDATE(S): Make sure to check out dependency docs before updating")
+  if 'Minor' in content:
+    print("### MINOR DEPENDENCY UPDATE(S): Update before merging")
+    sys.exit("Some of your dependencies have minor updates")
