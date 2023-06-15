@@ -1,5 +1,5 @@
 with open('dependent.txt', 'r') as file:
-  if getsize(file) == 0:
+  if file == '':
     print(":heavy_check_mark: All dependencies up to date :heavy_check_mark:")
   else:
     print("### :x: Outdated/Missing Dependencies List :x:")
