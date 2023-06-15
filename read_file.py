@@ -39,9 +39,9 @@ depend.close()
 with open('check_major_minor.txt', 'r') as checker:
   content = checker.read()
 
+  if 'Major' in content:
+    print("##### :warning: MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating :warning:")
+    
   if 'Minor' in content:
     print("### :x: MINOR DEPENDENCY UPDATE(S): Update these dependencies, otherwise the check will keep failing :x:")
     exit("Cannot merge: Minor dependency updates available")
-    
-  if 'Major' in content:
-    print("### :warning: MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating :warning:")
