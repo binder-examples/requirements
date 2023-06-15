@@ -1,20 +1,20 @@
 name: CI
 
-on:
+on: # Specifies when workflow is triggered
   push:
     branches: main
   pull_request:
     branches: [main, master]
-    types: [opened, reopened, labeled, synchronize]
-  workflow_dispatch:
+    types: [opened, reopened, synchronize]
+  workflow_dispatch: # Enables a button inside of the Actions tab to run workflow manually
     
-permissions:
+permissions: # Permissions of the workflow
   pull-requests: write
   contents: read
   issues: read
   
-jobs:
-  Sonar-Analysis:
+jobs: # Jobs the workflow runs
+  Sonar-Analysis: # SonarCloud job for code scanning
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo Data
@@ -27,10 +27,12 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args:
+          
+            # Project and organization keys from SonarCloud
             -Dsonar.projectKey=Majikjack620_requirements
             -Dsonar.organization=majikjack620
             
-  Dependabot-PR-Assigner:
+  Dependabot-PR-Assigner: # Job for auto assigning a Dependabot PR
     runs-on: ubuntu-latest
     if: ${{github.actor == 'dependabot[bot]' && github.event_name == 'pull_request'}}
     steps:
@@ -42,7 +44,7 @@ jobs:
           numOfAssignee: 1
           allowSelfAssign: true
           
-  Dependency-Validator:
+  Dependency-Validator: # Job for checking if dependencies are out of date
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo Data
@@ -63,13 +65,10 @@ jobs:
           pip list --outdated
           pip list --outdated >> dependent.txt
           
-      - name: Summarizing
+      - if: ${{github.event_name == 'pull_request'}}
+        name: Summarizing
         run: |
           python read_file.py >> $GITHUB_STEP_SUMMARY
-          
-      - if: ${{github.event_name == 'pull_request'}}
-        name: Write comment
-        run: |
           python read_file.py >> comments.txt
           gh pr comment "$PR_URL" --body-file comments.txt
         env:
