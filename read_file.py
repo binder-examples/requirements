@@ -28,6 +28,7 @@ with open('dependent.txt', 'r') as depend:
           print(listings[i], end=" | ")
 
     # Instructions outlining how to update outdated dependencies
+    print("##")
     print("### Updating **SPECIFIC** Dependencies:")
     print("""- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with 
     '***>=***' and not '***==***' (i.e. ***pandas>=1.5.1***)""")
@@ -46,6 +47,8 @@ depend.close()
 with open('check_major_minor.txt', 'r') as checker:
   content = checker.read()
 
+  print("##")
+  
   if 'Major' in content:
     print("#### :warning: MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating :warning:")
     
