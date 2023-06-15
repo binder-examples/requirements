@@ -1,9 +1,8 @@
 # Open file with outdated dependencies
-with open('dependent.txt', 'r') as file:
-  content = file.read()
-  
+with open('dependent.txt', 'r') as depend:
+
   # If the file is empty, this means all dependencies are up to date
-  if file == '':
+  if depend == '':
     print(":heavy_check_mark: All dependencies up to date :heavy_check_mark:")
 
   # If the file is not empty, we make a table out of it's content
@@ -13,7 +12,7 @@ with open('dependent.txt', 'r') as file:
     print("### :x: Outdated/Missing Dependencies List :x:")
 
     # Read file line-by-line
-    for line in file:
+    for line in depend:
       listings = list(line.split())
       length = len(listings)
 
@@ -35,9 +34,11 @@ with open('dependent.txt', 'r') as file:
     print("- Run the following command within the folder the ***requirements.txt*** file resides")
     print("  - ***pip install -r requirements.txt -U***")
     print("- **OR** run the command ***pip install {DEPENDENCY_NAME} -U*** to update a specific dependency")
+file.close()
 
-  if 'Major' in content:
-    print("### MAJOR DEPENDENCY UPDATE(S): Make sure to check out dependency docs before updating")
-  if 'Minor' in content:
-    print("### MINOR DEPENDENCY UPDATE(S): Update before merging")
-    sys.exit("Some of your dependencies have minor updates")
+with open('check_major_minor.txt', 'r') as checker:
+  if 'Major' in checker:
+    print("### MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating")
+  if 'Minor' in checker:
+    print("### MINOR DEPENDENCY UPDATE(S): Update these dependencies before merging")
+    sys.exit("Minor dependency updates available")
