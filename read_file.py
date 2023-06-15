@@ -34,11 +34,13 @@ with open('dependent.txt', 'r') as depend:
     print("- Run the following command within the folder the ***requirements.txt*** file resides")
     print("  - ***pip install -r requirements.txt -U***")
     print("- **OR** run the command ***pip install {DEPENDENCY_NAME} -U*** to update a specific dependency")
-file.close()
+depend.close()
 
 with open('check_major_minor.txt', 'r') as checker:
-  if 'Major' in checker:
+  content = checker.read()
+  
+  if 'Major' in content:
     print("### MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating")
-  if 'Minor' in checker:
+  if 'Minor' in content:
     print("### MINOR DEPENDENCY UPDATE(S): Update these dependencies before merging")
     sys.exit("Minor dependency updates available")
