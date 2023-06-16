@@ -30,7 +30,7 @@ with open('dependent.txt', 'r') as depend:
     # Instructions outlining how to update outdated dependencies
     print("##")
     print("### Updating **SPECIFIC** Dependencies:")
-    print("""- Ensure that ALL dependencies in the ***requirements.txt*** file are connected to their version with 
+    print("""- Ensure that, at least, the dependency that is being updated in the ***requirements.txt*** file is connected to it's version with 
     '***>=***' and not '***==***' (i.e. ***pandas>=1.5.1***)""")
     print("- Go inside the folder with the ***requirements.txt*** file from your CLI")
     print("- Run the following command in your CLI to update the dependency:")
