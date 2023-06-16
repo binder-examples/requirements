@@ -66,7 +66,7 @@ jobs: # Jobs the workflow runs
           pip list --outdated
           pip-check >> check_major_minor.txt
           pip list --outdated >> dependent.txt
-          python read_file.py >> $GITHUB_STEP_SUMMARY
+          python scripts/read_file.py >> $GITHUB_STEP_SUMMARY
           
       - if: ${{github.event_name == "pull_request"}}
         name: Summarizing outdated dependency list
@@ -75,3 +75,6 @@ jobs: # Jobs the workflow runs
         env:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          
+      - name: Pass/Fail Check
+        run: python scripts/check_pass_fail.py
