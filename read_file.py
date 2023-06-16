@@ -9,7 +9,7 @@ with open('dependent.txt', 'r') as depend:
   else:
 
     # Header
-    print("## :small_red_triangle_down: Outdated/Missing Dependencies List :small_red_triangle_down:")
+    print("## :small_red_triangle_down: Outdated Dependencies List :small_red_triangle_down:")
 
     # Read file line-by-line
     for line in depend:
