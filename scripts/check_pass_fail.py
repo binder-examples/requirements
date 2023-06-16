@@ -1,4 +1,4 @@
-with open('../check_major_minor.txt', 'r') as checker:
+with open('check_major_minor.txt', 'r') as checker:
   content = checker.read()
   
   if 'Minor' in content:
