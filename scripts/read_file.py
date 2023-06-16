@@ -1,8 +1,3 @@
-import os
-
-# Change current directory to one up so that file is able to read the 'txt' files
-os.chdir('..')
-
 # Open file with outdated dependencies
 with open('dependent.txt', 'r') as depend:
 
