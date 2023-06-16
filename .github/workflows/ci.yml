@@ -66,8 +66,10 @@ jobs: # Jobs the workflow runs
           pip list --outdated
           pip-check >> check_major_minor.txt
           pip list --outdated >> dependent.txt
+          python read_file.py >> $GITHUB_STEP_SUMMARY
           
-      - name: Summarizing outdated dependency list
+      - if: ${{github.event_name == "pull_request"}}
+        name: Summarizing outdated dependency list
         run: |
           python read_file.py >> comments.txt
           gh pr comment "$PR_URL" --body-file comments.txt
