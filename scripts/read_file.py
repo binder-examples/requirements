@@ -1,5 +1,10 @@
+import os
+
+# Change current directory to one up so that file is able to read the 'txt' files
+os.chdir('..')
+
 # Open file with outdated dependencies
-with open('../dependent.txt', 'r') as depend:
+with open('dependent.txt', 'r') as depend:
 
   # If the file is empty, this means all dependencies are up to date
   if depend == '':
@@ -44,13 +49,17 @@ with open('../dependent.txt', 'r') as depend:
     print("  - ***pip install -r requirements.txt -U --force-reinstall***")
 depend.close()
 
-with open('../check_major_minor.txt', 'r') as checker:
+# Open file that indicates major/minor upates
+with open('check_major_minor.txt', 'r') as checker:
   content = checker.read()
 
+  # Print a line
   print("##")
-  
+
+  # Check for major updates
   if 'Major' in content:
     print("#### :warning: MAJOR DEPENDENCY UPDATE(S): Make sure to check the dependency docs before updating :warning:")
-    
+
+  # Check for minor updates
   if 'Minor' in content:
     print("#### :x: MINOR DEPENDENCY UPDATE(S): Update these dependencies, otherwise the check will keep failing :x:")
