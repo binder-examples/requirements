@@ -64,8 +64,8 @@ jobs: # Jobs the workflow runs
       - name: Check for outdated dependencies
         run: |
           pip list --outdated
-          pip-check >> check_major_minor.txt
-          pip list --outdated >> dependent.txt
+          pip-check >> scripts/check_major_minor.txt
+          pip list --outdated >> scripts/dependent.txt
           python scripts/read_file.py >> $GITHUB_STEP_SUMMARY
           
       - if: ${{github.event_name == 'pull_request'}}
