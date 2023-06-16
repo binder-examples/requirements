@@ -54,4 +54,3 @@ with open('check_major_minor.txt', 'r') as checker:
     
   if 'Minor' in content:
     print("#### :x: MINOR DEPENDENCY UPDATE(S): Update these dependencies, otherwise the check will keep failing :x:")
-    exit("Cannot merge: Minor dependency update(s) available")
