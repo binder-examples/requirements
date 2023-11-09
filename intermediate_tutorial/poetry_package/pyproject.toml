@@ -6,6 +6,7 @@ authors = ["Carl Vitzthum"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+pytest = "^7.4.3"
 
 [tool.poetry.dev-dependencies]
 
