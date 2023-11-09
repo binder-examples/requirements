@@ -1,1 +1,6 @@
 .idea
+venv
+simplepackage.egg-info
+__pycache__
+build
+dist
