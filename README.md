@@ -4,9 +4,14 @@
 
 A Binder-compatible repo with a `requirements.txt` file.
 
-Access this Binder at the following URL
+Access this Binder at the following URL:
 
 http://mybinder.org/v2/gh/carlvitzthum/requirements/HEAD
+
+You can also access certain branches by prepending with URL with the branch instead of HEAD:
+
+http://mybinder.org/v2/gh/carlvitzthum/requirements/intermediate_python
+
 
 ## Notes
 The `requirements.txt` file should list all Python libraries that your notebooks
