@@ -1,5 +1,11 @@
+# project setup
 .idea
 venv
+
+# jupyter
+*-checkpoint.ipynb
+
+# packaging
 simplepackage.egg-info
 __pycache__
 build
