@@ -3,7 +3,7 @@
 venv
 
 # jupyter
-*-checkpoint.ipynb
+.ipynb_checkpoints
 
 # packaging
 simplepackage.egg-info
