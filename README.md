@@ -36,3 +36,7 @@ You write a requirements.in with just the dependencies you need
 and pip-compile will generate a requirements.txt with all the strict packages and versions that would come from installing that package right now.
 That way, you only need to specify what you actually know you need,
 but you also get a snapshot of your environment.
+
+```bash
+pipx run --spec pip-tools pip-compile requirements.in
+```
