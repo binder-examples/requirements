@@ -1,9 +1,0 @@
-ogs==6.4.3
-git+https://github.com/joergbuchwald/ogs6py@0f9e738e2ee469c8bde4204b2151238973417694#egg=ogs6py
-git+https://github.com/joergbuchwald/VTUinterface@master#egg=VTUinterface
-git+https://github.com/joergbuchwald/heatsource_thm@main#egg=heatsource-py
-git+https://github.com/dominik-kern/msh2vtu@15f4838affe7056f12c0ea12034e9b48ecb19846#egg=msh2vtu
-numpy
-matplotlib==3.*
-seaborn
-pandas

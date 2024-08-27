@@ -1,19 +1,25 @@
---extra-index-url https://gitlab.opengeosys.org/api/v4/projects/120/packages/pypi/simple
---extra-index-url https://gitlab.kitware.com/api/v4/projects/13/packages/pypi/simple
-git+https://gitlab.opengeosys.org/ogs/tools/ogstools@b4f3780274c464260ff43a248fac7379e49c8975#egg=ogstools
-git+https://github.com/bilke/ogs6py@66410a2acc6db77f33c78949e0601670895b0af6#egg=ogs6py
-gmsh>=4.11
-h5py>=3.8
-git+https://github.com/joergbuchwald/heatsource_thm@bbd5bab17fc2ec228c773e087dc847e1ad5f9a4c#egg=heatsource-py
-jupyterlab==3.4.8
-matplotlib>=3.6
+h5py
+matplotlib
 numpy<2
-pandas>=1.5
 ipywidgets
-pyvista[all]>=0.40.1
 nbgitpuller
 jupytext
-seaborn>=0.12
-VTUinterface>=0.704
-vtk-osmesa>=9.2.6;platform_system=='Linux'
-git+https://github.com/drufat/triangle@5210b64ac5f2aff5673a66938cae56dc0a93a4ff#egg=triangle;platform_system=='Darwin'
+seaborn
+# vtuinterface:
+pandas<2.2
+scipy<1.13
+lxml
+# ogs
+--extra-index-url https://gitlab.opengeosys.org/api/v4/projects/120/packages/pypi/simple
+ogs
+git+https://github.com/joergbuchwald/heatsource_thm@bbd5bab17fc2ec228c773e087dc847e1ad5f9a4c#egg=heatsource-py
+# ogstools:
+h5py>=3.8.0
+meshio>=5.3.0
+pandamesh>=0.1.6
+papermill>=2.4.0
+Pint>=0.22
+tenacity<8.4.0
+nbconvert>=7.9.2
+typeguard>=4.0.0
+# add you own here:
