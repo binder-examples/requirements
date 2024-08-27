@@ -13,7 +13,7 @@ RUN pip install --no-cache-dir --requirement /tmp/requirements.txt && \
     fix-permissions "/home/${NB_USER}"
 
 RUN pip install --no-cache-dir --index-url https://gmsh.info/python-packages-dev-nox \
-    --pre gmsh>=4.11 && \
+    --pre "gmsh>=4.11" && \
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
