@@ -22,5 +22,5 @@ RUN pip install --no-deps --no-cache-dir --requirement /tmp/requirements-no-deps
     fix-permissions "${CONDA_DIR}" && \
     fix-permissions "/home/${NB_USER}"
 
-COPY --chown=${NB_UID}:${NB_GID} . ${NB_USER}
-WORKDIR ${NB_USER}  
+COPY --chown=${NB_UID}:${NB_GID} . ${HOME}
+WORKDIR ${HOME}
