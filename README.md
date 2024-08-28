@@ -4,7 +4,7 @@
 
 A JupyterHub instance can be launched with this link:
 
-- <https://binder.opengeosys.org/v2/gh/bilke/binder-ogs-requirements>
+- <https://binder.opengeosys.org/v2/gh/bilke/binder-ogs-requirements/master>
 
 If you want to access the full OGS source code with benchmarks use this link:
 
