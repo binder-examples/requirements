@@ -10,8 +10,8 @@ pandas<2.2
 scipy<1.13
 lxml
 # ogs
---extra-index-url https://gitlab.opengeosys.org/api/v4/projects/120/packages/pypi/simple
-ogs
+# --extra-index-url https://gitlab.opengeosys.org/api/v4/projects/120/packages/pypi/simple
+ogs==6.5.3
 git+https://github.com/joergbuchwald/heatsource_thm@bbd5bab17fc2ec228c773e087dc847e1ad5f9a4c#egg=heatsource-py
 # ogstools:
 h5py>=3.8.0
