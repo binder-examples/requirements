@@ -25,6 +25,10 @@ your dependencies, not just direct dependencies.
 Strictly specifying only some dependencies is a recipe for environments
 breaking over time.
 
+If the root requirements.txt for some reason doesn't align with the dependencies 
+you need in your Binder environment, you can create a `requirements.txt` file in 
+a `.binder` folder that will take precedent!
+
 [pip-compile](https://github.com/jazzband/pip-tools/) is a handy
 tool for combining loosely specified dependencies with a fully frozen environment.
 You write a requirements.in with just the dependencies you need
